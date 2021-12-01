@@ -1,0 +1,35 @@
+{% extends 'base.html' %}{% load static bootstrap4 %}
+{% block body_class %}hold-transition login-page{% endblock body_class %}
+{% block title %}Login{% endblock %}
+
+{% block body %}
+<div class="login-box">
+  <div class="login-logo">
+    <a href="/"><b>Admin</b>LTE</a>
+  </div>
+  <!-- /.login-logo -->
+  <div class="card">
+    <div class="card-body login-card-body">
+      <p class="login-box-msg">Login</p>
+
+      <form action="" method="post">{% csrf_token %}
+        {% bootstrap_form form %}
+        {% buttons %}
+          <button type="submit" class="btn btn-primary">
+            Submit
+          </button>
+        {% endbuttons %}
+      </form>
+    </div>
+  </div>
+</div>
+<!-- /.login-box -->
+{% endblock body %}
+
+{% block scripts %}
+  <script>
+    $(function () {
+      $('#id_login').focus();
+    })
+  </script>
+{% endblock scripts %}
